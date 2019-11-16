@@ -1,0 +1,1 @@
+exec sp_dbcmptlevel GlobalToyz,90 USE GlobalToyz exec sp_changedbowner 'sa'

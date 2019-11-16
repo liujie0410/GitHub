@@ -1,0 +1,4 @@
+select cOrderNo,cShopperId,mTotalCost
+from Orders
+/*×Ü¼ÛÉýÐò*/
+order by mTotalCost asc
