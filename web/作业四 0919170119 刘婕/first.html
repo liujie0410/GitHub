@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局及交互</title>
+    <style type="text/css">
+    .paper{
+        width:800px;
+        height:500px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin:-250px 0 0 -400px;
+    }
+    .fag{
+        top:0px;
+        background-color: gray;
+        color:white;
+    }
+    .txt1{
+        font-size:28px;
+        font-family: STsong;
+        letter-spacing: 3px;
+    }
+    .txt2{
+        font-size:12px;
+        position: absolute;
+        right:0px;
+        top:40px;
+    }
+   .circle{
+        width:50px;
+        height:50px;
+        background-color:green;
+        border-radius:25px;
+        float:left;
+        margin : 15px 25px 20px 25px;
+    }
+    .circle div{
+        display:none;
+    }
+    .circle:hover div{
+        display:initial;
+        text-align:center;
+    }
+
+    
+    </style>
+    <script>
+        function change(){
+            document.getElementById("a").style.background="red";
+            document.getElementById("b").style.background="red";
+        }
+        function mouseover(){
+            document.getElementsByName("1").style.background="black";
+        }
+        
+    </script>
+</head>
+
+
+<body onload="change()">
+    <div class="paper">
+     <div class="fag">
+          <p class="txt1">服务器实时状态<span class="txt2">某某某，欢迎您！</span></p>
+     </div>
+    <div class="circle" state="1" name="1"><div>sever1</div></div><div class="circle" state="1" name="2"><div>sever2</div></div> 
+    <div class="circle" state="1" name="3"><div>sever3</div></div><div class="circle" state="1" name="4"><div>sever4</div></div>
+    <div class="circle" state="1" name="5"><div>sever5</div></div><div class="circle" state="1" name="6"><div>sever6</div></div>
+    <div class="circle" state="1" name="7"><div>sever7</div></div><div class="circle" state="1" name="8"><div>sever8</div></div>
+    <div class="circle" state="1" name="9"><div>sever9</div></div><div class="circle" state="1" name="10"><div>sever10</div></div>
+    <div class="circle" state="1" name="11"><div>sever11</div></div><div class="circle" state="1" name="12"><div>sever12</div></div>
+    <div class="circle" state="0" name="13" id="a" ><div>sever13</div></div><div class="circle" state="1" name="14"><div>sever14</div></div>
+    <div class="circle" state="1" name="15"><div>sever15</div></div><div class="circle" state="1" name="16"><div>sever16</div></div>
+    <div class="circle" state="1" name="17"><div>sever17</div></div><div class="circle" state="1" name="18"><div>sever18</div></div>
+    <div class="circle" state="1" name="19"><div>sever19</div></div><div class="circle" state="1" name="20"><div>sever20</div></div>
+    <div class="circle" state="0" name="21" id="b"><div>sever21</div></div><div class="circle" state="1" name="22"><div>sever22</div></div>
+    <div class="circle" state="1" name="23"><div>sever23</div></div><div class="circle" state="1" name="24"><div>sever24</div></div>
+    </div>
+</body>
+</html>

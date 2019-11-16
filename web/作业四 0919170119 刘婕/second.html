@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局</title>
+    <style type="text/css">
+    .box{
+        width:400px;
+        height:100px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin:-50px 0 0 -200px ;
+        border-style:solid;
+        border-width:1px;
+        text-align:center;
+        padding:20px 0;
+        font-style:italic;
+        font-size:24px;
+    }
+    </style>
+   <script>
+    window.onload = function(){
+      var oBnt1 = document.getElementById('bnt1');
+      var oBnt2 = document.getElementById('bnt2');
+      var oP = document.getElementById('text');
+      var num = 24;
+      oBnt1.onclick = function(){
+         num --;
+      oP.style.fontSize = num+'px';
+    }
+       oBnt2.onclick = function(){
+          num ++;
+       oP.style.fontSize = num+'px';
+     }
+
+ }
+   </script>
+</head>
+<body>
+        
+    <div class="box">
+        <p id="text">Web技术</p>
+    </div>
+    <input id="bnt1" style="margin-left:436px;margin-top:500px;" type="button" value="缩小" />
+    <input id="bnt2" type="button" value="增大" />
+</body>
+</html>
