@@ -1,0 +1,189 @@
+package ppp;
+
+
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.regex.*;
+
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+
+
+
+import ppp.webPageResource;
+
+public class MyComponent extends JFrame implements ActionListener{
+	private JTextPane show= new JTextPane();
+	private Style style = null;
+	private Style style2 = null;
+	private JTextField urlField = null;
+	private JButton seed = null;
+	private ArrayList<String> arrayList = null;
+	private HashSet<String> sensitiveWordSet = null;
+	private ArrayList sensitiveWordList = null;
+	public MyComponent(){
+		styleIni();
+		Ini();
+		InitialText();
+	}
+	
+	public void styleIni(){ 
+		Style style = show.getStyledDocument().addStyle(null, null);// 获取组件空样式，addStyle(null,  
+        // null)会返回一个空样式  
+
+		StyleConstants.setFontFamily(style, "楷体");// 为style样式设置字体属性  
+		StyleConstants.setFontSize(style, 18);// 为style样式设置字体大小  
+
+		Style normal = show.addStyle("normal", style);// 将style样式添加到组件，并命名为normal，返回一个样式由Style  
+// normal变量接收  
+/** 这个时候，组件编辑器关联的模型中就添加了一个样式normal，这个样式是最基本的一个样式，其他样式可以根据他进行修改 */  
+
+		style = show.addStyle("style1", normal);// 基于normal样式，在添加三次，分别命名为style1，style2，style3  
+		style2 = show.addStyle("style2", normal);// 此时，style1，style2，style3三个样式和normal样式是一模一样的  
+        StyleConstants.setForeground(style, Color.BLACK);// 将style1的颜色设置为黑色  
+        
+        StyleConstants.setForeground(style2, Color.RED);// 将style2的颜色设置为红色  
+	
+	}
+	
+	public void Ini(){
+        this.setBounds(200, 150, 420, 520);  
+        this.setLayout(null);  
+        urlField = new JTextField();
+        urlField.setBounds(10,15,300,50);
+        this.add(urlField);
+        seed = new JButton("解析");
+        //seed = new JButton("解析一些URL");
+        seed.addActionListener(this);
+        seed.setBounds(330, 10, 60, 35);
+        this.add(seed);
+        this.show.setEditable(false);  
+        // 定义滚动面板，放历史面板，以实现滚动条（有需要的时候显示）和换行  
+        JScrollPane js_show = new JScrollPane(show,  
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,  
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);  
+        // 设置位置大小  
+        js_show.setBounds(10, 70, 380, 400);  
+        // 添加到窗体  
+        this.add(js_show);  
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		//按钮按了解析函数
+	if(e.getSource()==seed){
+		webPageResource url = new webPageResource(urlField.getText(), "utf-8");
+		urlField.setText("");
+		try{
+			
+			this.show.getStyledDocument().insertString(  
+                    this.show.getStyledDocument().getLength(),  
+                    url.getPageSource() + "\n", style2);  
+			filterInfo("group group");
+		}catch (Exception E) {
+			// TODO: handle exception
+		}
+
+		}
+	}
+	
+	public void InitialText(){
+		 File file = new File("C:\\Users\\lenovo\\Desktop\\Url2\\a.txt");
+		 StringBuffer contents = new StringBuffer();
+		 BufferedReader reader = null;
+		 arrayList = new ArrayList<String>();
+		 
+		 try {
+		     reader = new BufferedReader(new FileReader(file));
+		     String text = null;
+		     // repeat until all lines is read
+		     while ((text = reader.readLine()) != null) {
+		    	 if(!arrayList.contains(text)){
+		    		 arrayList.add(text);
+		    	 }
+		     }
+		 }
+		 catch (FileNotFoundException e) {
+		     e.printStackTrace();
+		 }
+		 catch (IOException e) {
+		     e.printStackTrace();
+		 }
+		 finally {
+		     try {
+		  if (reader != null) {
+		      reader.close();
+		  }
+		     }
+		     catch (IOException e) {
+		  e.printStackTrace();
+		     }
+		 }		 
+	}
+	
+	public void writeFile(){
+		 FileOutputStream fos = null;
+		 BufferedWriter bw = null;
+		 try {
+		     File file = new File("abc.txt");
+		     fos = new FileOutputStream(file);
+		     bw = new BufferedWriter(new OutputStreamWriter(fos));
+		     bw.write("this is a sample!");
+		 }
+		 catch (FileNotFoundException fnfe) {
+		     fnfe.printStackTrace();
+		 }
+		 catch (IOException ioe) {
+		     ioe.printStackTrace();
+		 }
+		 finally {
+		     try {
+		  if (bw != null)
+		      bw.close();
+		  if (fos != null)
+		      fos.close();
+		     }
+		     catch (IOException ie) {
+		     }
+		 }
+	}
+	
+	public void highLight(){
+		
+	}
+	public void filterInfo(String str)  
+	{   
+		String regEx ="group";
+		
+	    //检测要匹配的单词，单词的前面必须是空格或者标点符号
+	    Pattern pattern = Pattern.compile("[^\\w]"+regEx+"[^\\w]");
+
+	    Matcher matcher = pattern.matcher(str);
+	    System.out.println(matcher.end());
+	    //booleanresult= matcher.find();
+
+
+	}  
+	public static void main(String []args){
+		new MyComponent();
+		
+	}
+}
+
+

@@ -1,0 +1,374 @@
+package ppp;
+
+
+
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.io.ObjectInputStream.GetField;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.regex.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+
+
+
+
+
+
+import ppp.webPageResource;
+
+public class MyComponent extends JFrame implements ActionListener{
+	private JTextPane show= new JTextPane();
+	private Style style = null;
+	private Style style2 = null;
+	private JTextField urlField = null;
+	private JButton seed = null;
+	private JButton but = null;
+	private ArrayList<String> arrayList = null;
+	private ArrayList list = null;
+	private ArrayList all = new ArrayList();
+	private ArrayList allUrl = null;
+	public MyComponent(){
+		styleIni();
+		//Ini();
+		//InitialText();
+		//InitialUrl();
+	}
+	
+	public void styleIni(){
+		Style style = show.getStyledDocument().addStyle(null, null);// 获取组件空样式，addStyle(null,  
+        // null)会返回一个空样式  
+
+		StyleConstants.setFontFamily(style, "楷体");// 为style样式设置字体属性  
+		StyleConstants.setFontSize(style, 18);// 为style样式设置字体大小  
+
+		Style normal = show.addStyle("normal", style);// 将style样式添加到组件，并命名为normal，返回一个样式由Style  
+// normal变量接收  
+/** 这个时候，组件编辑器关联的模型中就添加了一个样式normal，这个样式是最基本的一个样式，其他样式可以根据他进行修改 */  
+
+		style = show.addStyle("style1", normal);// 基于normal样式，在添加三次，分别命名为style1，style2，style3  
+		style2 = show.addStyle("style2", normal);// 此时，style1，style2，style3三个样式和normal样式是一模一样的  
+        StyleConstants.setForeground(style, Color.BLACK);// 将style1的颜色设置为黑色  
+        
+        StyleConstants.setForeground(style2, Color.RED);// 将style2的颜色设置为红色  
+	
+	}
+	
+	public void Ini(){
+        this.setBounds(200, 100, 420, 560);  
+        this.setLayout(null);  
+        urlField = new JTextField();
+        urlField.setBounds(10,15,300,50);
+        this.add(urlField);
+        seed = new JButton("解析");
+        seed.addActionListener(this);
+        seed.setBounds(330, 10, 60, 35);
+        this.add(seed);
+        but = new JButton("解析一些URL");
+        but.addActionListener(this);
+        but.setBounds(10,480,300,35);
+        this.add(but);
+        this.show.setEditable(false);  
+        // 定义滚动面板，放历史面板，以实现滚动条（有需要的时候显示）和换行  
+        JScrollPane js_show = new JScrollPane(show,  
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,  
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);  
+        // 设置位置大小  
+        js_show.setBounds(10, 70, 380, 400);  
+        // 添加到窗体  
+        this.add(js_show);  
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		//按钮按了解析函数
+	if(e.getSource()==seed){
+		show.setText("");
+		webPageResource url = new webPageResource(urlField.getText(), "utf-8");
+		urlField.setText("");
+		String htmls =url.getPageSource();
+		System.out.println(htmls);
+
+		try{
+			
+			for(int i =0;i<arrayList.size();i++){
+				filterInfo(arrayList.get(i).toString(),htmls);	
+			}
+			compare();
+			System.out.println(all.size());
+			int flag =0;
+		    for(int i=0;i<all.size();i++){
+		    	if(((weizhi)all.get(i)).getX()!=0 && flag==0){
+		    		normal(htmls.substring(0, ((weizhi)all.get(i)).getX()));
+		    		flag=1;
+		    	}
+		    	highLight(htmls.substring(((weizhi)all.get(i)).getX(),(((weizhi)all.get(i)).getX()+((weizhi)all.get(i)).getString().length())));
+		    	normal(htmls.substring((((weizhi)all.get(i)).getX()+((weizhi)all.get(i)).getString().length()),((weizhi)all.get(i+1)).getX()));
+		    }
+		    if(all.size()==0){
+		    	normal(htmls);
+		    }
+
+	/*	    list.clear();
+		    htmls =null;*/
+
+		}catch (Exception E) {
+			// TODO: handle exception
+		}
+
+		}
+	if(e.getSource()==but){
+		InitialUrl();
+		getAll();
+	}
+	
+	}
+		
+	public void InitialText(){
+		 File file = new File("E:\\词库.txt");
+		 StringBuffer contents = new StringBuffer();
+		 BufferedReader reader = null;
+		 arrayList = new ArrayList<String>();
+		 
+		 try {
+		     reader = new BufferedReader(new FileReader(file));
+		     String text = null;
+		     // repeat until all lines is read
+		     while ((text = reader.readLine()) != null) {
+		    	 if(!arrayList.contains(text)){
+		    		 arrayList.add(text);
+		    	 }
+		     }
+		 }
+		 catch (FileNotFoundException e) {
+		     e.printStackTrace();
+		 }
+		 catch (IOException e) {
+		     e.printStackTrace();
+		 }
+		 finally {
+		     try {
+		  if (reader != null) {
+		      reader.close();
+		  }
+		     }
+		     catch (IOException e) {
+		  e.printStackTrace();
+		     }
+		 }		 
+	}
+	public void InitialUrl(){
+		 File file = new File("E:\\Url.txt");
+		 StringBuffer contents = new StringBuffer();
+		 BufferedReader reader = null;
+		 allUrl = new ArrayList<String>();
+		 
+		 try {
+		     reader = new BufferedReader(new FileReader(file));
+		     String text = null;
+		     // repeat until all lines is read
+		     while ((text = reader.readLine()) != null) {
+		    	 if(!allUrl.contains(text)){
+		    		 allUrl.add(text);
+		    	 }
+		     }
+		 }
+		 catch (FileNotFoundException e) {
+		     e.printStackTrace();
+		 }
+		 catch (IOException e) {
+		     e.printStackTrace();
+		 }
+		 finally {
+		     try {
+		  if (reader != null) {
+		      reader.close();
+		  }
+		     }
+		     catch (IOException e) {
+		  e.printStackTrace();
+		     }
+		 }		 
+	}	
+	public void writeFile(String name,String result){
+		 FileOutputStream fos = null;
+		 BufferedWriter bw = null;
+		 try {
+		     File file = new File(name);
+		     fos = new FileOutputStream(file);
+		     bw = new BufferedWriter(new OutputStreamWriter(fos));
+		     bw.write(result);
+		 }
+		 catch (FileNotFoundException fnfe) {
+		     fnfe.printStackTrace();
+		 }
+		 catch (IOException ioe) {
+		     ioe.printStackTrace();
+		 }
+		 finally {
+		     try {
+		  if (bw != null)
+		      bw.close();
+		  if (fos != null)
+		      fos.close();
+		     }
+		     catch (IOException ie) {
+		     }
+		 }
+	}
+	
+	public void highLight(String str){
+		try{
+			
+				this.show.getStyledDocument().insertString(this.show.getStyledDocument().getLength(), str, style2);
+				}catch(Exception E){
+			
+		}
+	}
+	public void normal(String str){
+		try {
+			this.show.getStyledDocument().insertString(this.show.getStyledDocument().getLength(), str, style);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+
+	public void filterInfo(String regEx,String str)  
+	{   
+		all = new ArrayList();
+		String copy = str;
+		list = new ArrayList();
+	    Pattern pattern = Pattern.compile(regEx);
+	    int begin =0;
+	    Matcher matcher = pattern.matcher(str);
+	    boolean matches = matcher.matches();
+	    
+
+	    while(matcher.find()){
+		    	begin=matcher.start();
+		    	weizhi p=new weizhi(begin, matcher.end(),regEx);
+		    	list.add(p);
+
+		    }
+
+	    if(list.size()==0){
+	    	System.out.println(regEx+"\n");
+	    	
+	    	return;
+	    }else{
+	    	all.addAll(list);
+	    	System.out.println("jkkkkkkkkkkjjjjjjjjjjjjjjjjjjjjjjjjjj");
+	    }
+	    //list.clear();
+
+
+	} 
+	/***********解析一些**************/
+	public void getAll(){
+
+		for(int i=0;i<allUrl.size();i++){
+			webPageResource url = new webPageResource((String)allUrl.get(i), "UTF-8");
+			urlField.setText("");
+			String htmls =url.getPageSource();
+			writeFile("E:\\htmls-for"+i+".txt",htmls);
+			try{
+				
+				for(int j =0;j<arrayList.size();j++){
+					filterInfo(arrayList.get(j).toString(),htmls);		
+				}
+				compare();
+
+				String result ="";
+
+				for(int k =0;k<all.size();k++){
+					String newString =((weizhi)all.get(k)).getString();
+
+					int count=1;
+					for(int j=k+1;j<all.size();j++){
+						if(((weizhi)all.get(j)).getString().equals(newString)){
+							count++;
+							all.remove(j);
+							j=j-1;
+						}
+					}
+					 result += (newString+"    出现了:"+count+"次;\n");
+					 all.remove(k);
+				}
+				writeFile("E:\\htmls-words-for"+i+".txt", result);
+				JOptionPane.showMessageDialog(this, "result:"+result);
+			}catch (Exception E) {
+				// TODO: handle exception
+			}
+		}
+		
+	}
+	
+	
+    public void compare() {
+    	Comparator<weizhi> comparator = new Comparator<weizhi>() {
+    		 
+            @Override
+            public int compare(weizhi o1, weizhi o2) {
+                // TODO Auto-generated method stub
+                if (o1.getX() > o2.getX()) {
+                    return 1;
+                } else if(o1.getX() < o2.getX()){
+                    return -1;
+                }else{
+                    return 0;
+                }
+            }
+     
+        };
+        Collections.sort(all,comparator);
+        
+    }
+	public static void main(String []args){
+		MyComponent myComponent = new MyComponent();
+		
+		
+	}
+}
+class weizhi{
+	private int x;
+	private int y;
+	private String str;
+	public weizhi(int a,int b,String st){
+		x=a;
+		y=b;
+		str =st;
+	}
+	public int getX(){
+		return x;
+	}
+	public String getString(){
+		return str;
+	}
+	
+}
+
+
+
+
