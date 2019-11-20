@@ -1,0 +1,85 @@
+body{
+    background: #ccc;
+    margin: 0;
+
+    font-family: "微软雅黑", serif;
+}
+.wrapper {
+    width: 438px;
+    height: 682px;
+    background-color: white;
+}
+
+.nav {
+    height: 31px;
+    border-bottom:2px #eee solid ;
+    padding: 13px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.content {
+    padding: 18px;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    flex-flow: column;
+}
+
+.shop {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-logo {
+    display: inline-block;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.shop-name {
+    padding: 9px 0;
+}
+
+.shop-logo-img {
+    width: 100%;
+    height: 100%;
+}
+
+.order-price {
+    margin-top: 7px;
+    height: 150px;
+    text-align: center;
+}
+
+.order-price-num {
+    font-size: 38px;
+}
+
+.order-price-text {
+    color: #b9b9b9;
+    margin-top: 10px;
+}
+
+.order-item {
+    padding: 7px 0;
+    height: 31px;
+}
+
+.order-item-left-text {
+    color: #909090;
+    float: left;
+}
+
+.order-item-right-text {
+    float: right;
+    color: #2d2d2d;
+}

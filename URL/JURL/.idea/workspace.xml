@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e84e9652-0a19-4853-9dcd-e19c8869f76c" name="Default Changelist" comment="" />
+    <list default="true" id="e84e9652-0a19-4853-9dcd-e19c8869f76c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress 2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress$1 2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/Progress$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/Progress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Webresource 2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Webresource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/Webresource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/weizhi 2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/weizhi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/weizhi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/wordstyle 2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/wordstyle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/wordstyle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../数据库/数据库第一次/CAPData.ldf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../数据库/第一次/CAPData.ldf" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +38,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/URL/wordstyle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -32,19 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/URL/Webresource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -58,11 +64,14 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -95,11 +104,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -161,17 +169,18 @@
       <workItem from="1562718830152" duration="978000" />
       <workItem from="1563269400887" duration="80000" />
       <workItem from="1563887027587" duration="2140000" />
+      <workItem from="1574215788875" duration="29000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23792000" />
+    <option name="totallyTimeSpent" value="23821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2746781" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -251,20 +260,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/URL/Webresource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/URL/wordstyle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="12" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/URL/Webresource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
