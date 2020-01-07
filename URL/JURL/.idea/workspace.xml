@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e84e9652-0a19-4853-9dcd-e19c8869f76c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress$1 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/Progress$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Progress.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/Progress.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Webresource 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/Webresource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/Webresource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/weizhi 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/weizhi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/weizhi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/wordstyle 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JURL/URL/wordstyle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JURL/URL/wordstyle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../数据库/数据库第一次/CAPData.ldf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../数据库/第一次/CAPData.ldf" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/URL/wordstyle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -70,7 +57,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -104,6 +90,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -170,17 +157,19 @@
       <workItem from="1563269400887" duration="80000" />
       <workItem from="1563887027587" duration="2140000" />
       <workItem from="1574215788875" duration="29000" />
+      <workItem from="1575442151318" duration="1000" />
+      <workItem from="1575975070023" duration="371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23821000" />
+    <option name="totallyTimeSpent" value="24193000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2746781" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28183118" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -253,13 +242,6 @@
     <entry file="file://$PROJECT_DIR$/JURL.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/URL/Progress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/URL/Webresource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -270,10 +252,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/URL/Progress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/URL/wordstyle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
